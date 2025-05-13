@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class User extends Migration
 {
     /**
      * Run the migrations.
@@ -15,6 +15,9 @@ return new class extends Migration
             $table->string('role')->default('user');
             $table->primaryId('id');
             $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('remember_token')->nullable();
             $table->timestamps();
         });
     }

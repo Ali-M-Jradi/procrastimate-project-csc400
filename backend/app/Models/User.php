@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+
     ];
 
     /**
@@ -44,5 +46,41 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function tasks(){
+        return $this->hasMany(Task::class);
+    }
+
+    public function nudgesSent() {
+        return $this->hasMany(Nudge::class, 'from_user_id');
+    }
+
+    public function nudgesReceived() {
+        return $this->hasMany(Nudge::class, 'to_user_id');
+    }
+
+    public function comment(){
+        return $this->hasMany(Comment::class);
+    }
+
+    public function reportSubmittedBy(){
+        return $this->hasMany(Report::class, 'submitted_by');
+    }
+
+    public function group(){
+        return $this->belongsToMany(Group::class,'group_user','user_id');
+    }
+
+    public function reportAsSubject(){
+        return $this->hasMany(Report::class,'as_subject');
+    }
+
+    public function isAdmin() {
+        return $this->role === 'admin';
+    }
+
+    public function isCoach() {
+        return $this->role === 'coach';
     }
 }
