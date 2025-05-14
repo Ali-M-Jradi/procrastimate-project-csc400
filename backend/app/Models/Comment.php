@@ -25,4 +25,13 @@ class comments extends Model
     public function group(){
         return $this->belongsTo(Group::class);
     }
+    public function replies(){
+        return $this->hasMany(Comment::class, 'parent_id');
+    }
+    public function notificationSent() {
+        return $this->hasMany(Notification::class, 'from_user_id');
+    }
+    public function notificationReceived() {
+        return $this->hasMany(Notification::class, 'to_user_id');
+    }
 }

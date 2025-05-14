@@ -4,14 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Nudge extends Migration
+class Notification extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('nudges', function (Blueprint $table) {
+        Schema::create('notification', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -22,6 +22,6 @@ class Nudge extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nudges');
+        Schema::dropIfExists('notification');
     }
 };

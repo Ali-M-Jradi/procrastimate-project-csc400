@@ -52,11 +52,11 @@ class User extends Authenticatable
         return $this->hasMany(Task::class);
     }
 
-    public function nudgesSent() {
+    public function notificationSent() {
         return $this->hasMany(Nudge::class, 'from_user_id');
     }
 
-    public function nudgesReceived() {
+    public function notificationReceived() {
         return $this->hasMany(Nudge::class, 'to_user_id');
     }
 
