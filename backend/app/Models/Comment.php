@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class comments extends Model
 {
+    
+    protected $fillable = [
+        'user_id',
+        'task_id',
+        'group_id',
+        'content',
+    ];
+
+    
     public function user(){
         return $this->belongsTo(User::class);
     }

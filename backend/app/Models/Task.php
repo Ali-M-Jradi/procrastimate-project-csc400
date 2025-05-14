@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class tasks extends Model
 {
+
+    protected $fillable = [
+        'user_id',
+        'title',
+        'description',
+        'status',
+        'due_date',
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }

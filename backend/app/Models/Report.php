@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class reports extends Model
 {
+    protected $fillable = [
+        'submitted_by',
+        'user_id',       // the reported person
+        'group_id',      // nullable
+        'reason',
+    ];
+
     public function userId(){
         return $this->belongsTo(User::class,'user_id');
     }

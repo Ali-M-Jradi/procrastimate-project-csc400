@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class groups extends Model
 {
+    protected $fillable = [
+        'name',
+        'description',
+        'created_by',
+        'is_private',
+    ];
+
     public function userCreatedBy(){
         return $this->belongsTo(User::class,'created_by');
     }
