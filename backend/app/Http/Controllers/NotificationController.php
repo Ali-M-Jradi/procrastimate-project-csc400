@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\nudges;
 use Illuminate\Http\Request;
 
-class NudgesController extends Controller
+class NotificationsController extends Controller
 {
     /**
      * Display a listing of the resource.
