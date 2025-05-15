@@ -34,7 +34,7 @@ Route::get('/', function () {
     
     Route::middleware('auth','role:user')->group(function () {
         //View user dashboard
-        Route::get('index',[UserController::class,'showUserDashboard'])->name('index');
+        Route::get('index',[UserController::class,'showUserDashboard'])->name('showUserDashboard');
 
         //manage personal tasks
         Route::post('task',[TaskController::class,'createTask'])->name('createTask');
