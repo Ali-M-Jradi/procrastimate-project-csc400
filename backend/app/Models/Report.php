@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class reports extends Model
 {
+    protected $table = 'reports';
     protected $fillable = [
         'submitted_by',
         'user_id',       // the reported person
